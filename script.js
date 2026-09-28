@@ -16,7 +16,19 @@ const blends = [
         origin: "Yemen",
         roast: "Dark",
         price: 26
-    }
+    },
+    {
+    name: "Sunrise",
+    origin: "Brazil",
+    roast: "Light",
+    price: 20
+},
+    {
+    name: "Midnight",
+    origin: "Guatemala",
+    roast: "Dark",
+    price: 28
+}
 ];
 
 // HTML Element References
