@@ -22,8 +22,10 @@ const blends = [
 ];
 
 const button = document.getElementById("show-btn");
-
 const list = document.getElementById("blend-list");
+const lightButton = document.getElementById("light-btn");
+const mediumButton = document.getElementById("medium-btn");
+const darkButton = document.getElementById("dark-btn");
 
 button.addEventListener("click", () => {
   
