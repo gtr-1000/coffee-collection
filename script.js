@@ -33,11 +33,12 @@ const blends = [
 
 // HTML Element References
 const button = document.getElementById("show-btn");
-const search = document.getElementbyId("search-btn");
 const list = document.getElementById("blend-list");
 const lightButton = document.getElementById("light-btn");
 const mediumButton = document.getElementById("medium-btn");
 const darkButton = document.getElementById("dark-btn");
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-btn");
 
 // Reusable function to render any list of blends dynamically
 function renderList(listOfBlends) {
@@ -83,3 +84,16 @@ mediumButton.addEventListener("click", () => {
 darkButton.addEventListener("click", () => {
   filterBlends("Dark");
 });
+
+// Event listener to search in real-time as the user types
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase(); // Get the typed text in lowercase
+  
+  // Filter the blends whose name includes the searched term
+  const matchedBlends = blends.filter(blend => 
+    blend.name.toLowerCase().includes(searchTerm)
+  );
+  
+  renderList(matchedBlends); // Render the filtered results on the screen
+});
+
