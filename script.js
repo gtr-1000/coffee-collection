@@ -33,6 +33,7 @@ const blends = [
 
 // HTML Element References
 const button = document.getElementById("show-btn");
+const search = document.getElementbyId("search-btn");
 const list = document.getElementById("blend-list");
 const lightButton = document.getElementById("light-btn");
 const mediumButton = document.getElementById("medium-btn");
