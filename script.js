@@ -61,22 +61,24 @@ function renderList(listOfBlends) {
   });
 }
 
-// Event Listeners for buttons
+function filterBlends(roastType) {
+  const filteredBlends = blends.filter(blend => blend.roast === roastType);
+  renderList(filteredBlends);
+}
+
+// Event Listeners for buttons 
 button.addEventListener("click", () => {
   renderList(blends); // Shows the complete original list
 });
 
 lightButton.addEventListener("click", () => {
-  const lightBlends = blends.filter(blend => blend.roast === "Light");
-  renderList(lightBlends); // Shows only light roast blends
+  filterBlends("Light");
 });
 
 mediumButton.addEventListener("click", () => {
-  const mediumBlends = blends.filter(blend => blend.roast === "Medium");
-  renderList(mediumBlends); // Shows only medium roast blends
+  filterBlends("Medium");
 });
 
 darkButton.addEventListener("click", () => {
-  const darkBlends = blends.filter(blend => blend.roast === "Dark");
-  renderList(darkBlends); // Shows only dark roast blends
+  filterBlends("Dark");
 });
