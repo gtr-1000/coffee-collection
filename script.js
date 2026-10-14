@@ -39,9 +39,11 @@ const lightButton = document.getElementById("light-btn");
 const mediumButton = document.getElementById("medium-btn");
 const darkButton = document.getElementById("dark-btn");
 const searchInput = document.getElementById("search-input");
+const sortSelect = document.getElementById("sort-select");
 
 // 2. State: currently selected roast
 let currentRoast = "All";
+let currentSort = "default";
 
 // 3. Render the list of blends
 function renderList(listOfBlends) {
@@ -79,10 +81,19 @@ function updateCollection() {
     return matchesRoast && matchesName;
   });
 
-  renderList(filteredBlends);
+  // Create a copy so the original array stays unchanged
+  const sortedBlends = [...filteredBlends];
 
-  // Show a message if there are no matching blends
-  if (filteredBlends.length === 0) {
+  // Sort the copy according to the selected option
+  if (currentSort === "asc") {
+    sortedBlends.sort((a, b) => a.price - b.price);
+  } else if (currentSort === "desc") {
+    sortedBlends.sort((a, b) => b.price - a.price);
+  }
+
+  renderList(sortedBlends);
+
+  if (sortedBlends.length === 0) {
     const message = document.createElement("li");
 
     message.textContent =
@@ -120,5 +131,10 @@ darkButton.addEventListener("click", () => {
 
 // Search in real time as the user types
 searchInput.addEventListener("input", () => {
+  updateCollection();
+});
+
+sortSelect.addEventListener("change", () => {
+  currentSort = sortSelect.value;
   updateCollection();
 });
