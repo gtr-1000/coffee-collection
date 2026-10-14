@@ -41,7 +41,7 @@ const darkButton = document.getElementById("dark-btn");
 const searchInput = document.getElementById("search-input");
 const sortSelect = document.getElementById("sort-select");
 
-// 2. State: currently selected roast
+// 2. State: currently selected roast and sort
 let currentRoast = "All";
 let currentSort = "default";
 
